@@ -1,0 +1,28 @@
+
+services:
+  - type: web
+    name: marola
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    autoDeploy: true
+    branch: main
+    buildCommand: ""
+    startCommand: "apache2-foreground"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: COLE_AQUI_O_HOST_DO_RENDER
+      - key: DB_PORT
+        value: 5432
+      - key: DB_DATABASE
+        value: NOME_DO_BANCO
+      - key: DB_USERNAME
+        value: USUARIO_DO_BANCO
+      - key: DB_PASSWORD
+        value: SENHA_DO_BANCO
